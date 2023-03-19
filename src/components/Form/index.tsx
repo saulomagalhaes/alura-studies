@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuid } from "uuid";
 import { ITarefa } from "../../types/ITarefa";
 import Button from "../Button";
 import style from "./Form.module.scss";
@@ -14,7 +15,7 @@ class Form extends React.Component<{
     event.preventDefault();
     this.props.setTarefas((prevState) => [
       ...prevState,
-      { ...this.state, id: prevState.length + 1 },
+      { ...this.state, id: uuid(), completed: false, selected: false },
     ]);
     this.setState({ title: "", time: "00:00:00" });
   }

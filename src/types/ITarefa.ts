@@ -1,5 +1,7 @@
 export interface ITarefa {
-  id: number;
+  id: string;
   title: string;
   time: string;
+  completed: boolean;
+  selected: boolean;
 }
