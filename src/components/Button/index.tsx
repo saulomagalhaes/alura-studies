@@ -5,7 +5,11 @@ class Button extends React.Component<{
   children: React.ReactNode;
 }> {
   render() {
-    return <button className={style.botao}>{this.props.children}</button>;
+    return (
+      <button type="submit" className={style.botao}>
+        {this.props.children}
+      </button>
+    );
   }
 }
 
