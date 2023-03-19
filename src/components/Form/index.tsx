@@ -16,6 +16,7 @@ class Form extends React.Component<{
       ...prevState,
       { ...this.state, id: prevState.length + 1 },
     ]);
+    this.setState({ title: "", time: "00:00:00" });
   }
 
   render() {
