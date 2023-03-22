@@ -7,9 +7,10 @@ import Watch from "./Watch";
 
 interface Props {
   selected: ITarefa | undefined;
+  finishTask: () => void;
 }
 
-export default function Countdown({ selected }: Props) {
+export default function Countdown({ selected, finishTask }: Props) {
   const [currentTime, setCurrentTime] = useState<number>();
 
   useEffect(() => {
@@ -24,6 +25,7 @@ export default function Countdown({ selected }: Props) {
         setCurrentTime(time - 1);
         return regressive(time - 1);
       }
+      finishTask();
     }, 1000);
   }
 

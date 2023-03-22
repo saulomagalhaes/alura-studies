@@ -19,11 +19,29 @@ function App() {
     );
   }
 
+  function finishTask() {
+    if (selected) {
+      setSelected(undefined);
+      setTarefas((prevTask) =>
+        prevTask.map((task) => {
+          if (task.id === selected.id) {
+            return {
+              ...task,
+              selected: false,
+              completed: true,
+            };
+          }
+          return task;
+        })
+      );
+    }
+  }
+
   return (
     <div className={style.AppStyle}>
       <Form setTarefas={setTarefas} />
       <List tarefas={tarefas} getTask={getTask} />
-      <Countdown selected={selected} />
+      <Countdown selected={selected} finishTask={finishTask} />
     </div>
   );
 }
